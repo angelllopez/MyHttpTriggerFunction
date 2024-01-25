@@ -1,0 +1,29 @@
+name: Azure Function Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Production Environment
+        required: true
+        default: 'production'
+        
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Whom can trigger this workflow.
+    #if: github.actor == username
+    if: contains(github.event.sender.roles, 'admin')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Azure CLI
+        uses: azure/login@v1
+
+      - name: Deploy to Azure
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: <APP_NAME>
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
