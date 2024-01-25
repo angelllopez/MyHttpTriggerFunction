@@ -15,6 +15,7 @@ public class Functions
     }
 
     // A comment goes here.
+    // Another comment
     [Function("Functions")]
     public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
     {
