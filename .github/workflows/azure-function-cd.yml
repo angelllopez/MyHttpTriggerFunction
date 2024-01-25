@@ -1,4 +1,4 @@
-name: Azure Function Deployment
+name: myHttpTriggerFunction Deployment
 
 on:
   workflow_dispatch:
@@ -25,5 +25,5 @@ jobs:
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v2
         with:
-          app-name: <APP_NAME>
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          app-name: myHttpTriggerFunction
+          publish-profile: ${{ secrets.AZURE_FUNCTION_PUBLISH_PROFILE }}
