@@ -3,6 +3,10 @@ name: myHttpTriggerFunction Deployment
 on:
   workflow_dispatch:
     inputs:
+      restrict:
+        description: Restrict workflow to only run when triggered by me
+        required: true
+        default: true
       environment:
         description: Production Environment
         required: true
@@ -13,8 +17,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     # Whom can trigger this workflow.
-    #if: github.actor == username
-    if: contains(github.event.sender.roles, 'admin')
+    if: github.actor == angelllopez
+    #if: contains(github.event.sender.roles, 'admin')
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
