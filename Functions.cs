@@ -14,6 +14,7 @@ public class Functions
         _logger = loggerFactory.CreateLogger<Functions>();
     }
 
+    // A comment goes here.
     [Function("Functions")]
     public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData req)
     {
