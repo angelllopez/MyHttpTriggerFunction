@@ -17,7 +17,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     # Whom can trigger this workflow.
-    if: github.actor == angelllopez
+    if: github.actor == 'angelllopez'
     #if: contains(github.event.sender.roles, 'admin')
     steps:
       - name: Checkout Repository
